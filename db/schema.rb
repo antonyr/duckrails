@@ -13,31 +13,34 @@
 
 ActiveRecord::Schema.define(version: 20160410174605) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "headers", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
-    t.string   "value",      limit: 255, null: false
-    t.integer  "mock_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",       null: false
+    t.string   "value",      null: false
+    t.integer  "mock_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "headers", ["mock_id"], name: "index_headers_on_mock_id", using: :btree
 
   create_table "mocks", force: :cascade do |t|
-    t.string   "name",           limit: 255,                  null: false
-    t.text     "description",    limit: 65535
-    t.integer  "status",         limit: 4,                    null: false
-    t.string   "content_type",   limit: 255,                  null: false
-    t.string   "request_method", limit: 255,                  null: false
-    t.string   "route_path",     limit: 255,                  null: false
-    t.string   "body_type",      limit: 255
-    t.text     "body_content",   limit: 65535
-    t.string   "script_type",    limit: 255
-    t.text     "script",         limit: 65535
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.boolean  "active",                       default: true, null: false
-    t.integer  "mock_order",     limit: 4,                    null: false
+    t.string   "name",                          null: false
+    t.text     "description"
+    t.integer  "status",                        null: false
+    t.string   "content_type",                  null: false
+    t.string   "request_method",                null: false
+    t.string   "route_path",                    null: false
+    t.string   "body_type"
+    t.text     "body_content"
+    t.string   "script_type"
+    t.text     "script"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "active",         default: true, null: false
+    t.integer  "mock_order",                    null: false
   end
 
   add_index "mocks", ["name"], name: "index_mocks_on_name", unique: true, using: :btree

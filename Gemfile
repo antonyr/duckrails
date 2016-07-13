@@ -7,11 +7,12 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'foundation-rails'
 gem 'simple_form'
-gem 'mysql2'
 gem 'cocoon'
 gem 'kaminari'
 gem 'rest-client'
 gem 'libxml-ruby'
+gem 'pg'
+gem 'quiet_assets'
 
 group :development, :test do
   gem 'byebug'
@@ -29,10 +30,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'rspec-matchers-controller_filters'
-  gem 'capybara'
-  gem 'capybara-screenshot'
-  gem 'capybara-webkit'
-  gem 'cucumber-rails', :require => false
-  gem 'selenium-webdriver', '2.53.0'
   gem 'table_flipper'
 end
